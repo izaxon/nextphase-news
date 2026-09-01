@@ -69,44 +69,14 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
       color: var(--ink);
-      font-size: 23px;
-      font-weight: 300;
-      letter-spacing: -.055em;
+      font-size: 27px;
+      font-weight: 250;
+      letter-spacing: -.06em;
       text-decoration: none;
     }
 
     .brand span { color: var(--accent); }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      position: relative;
-      border: 2px solid var(--ink);
-      border-radius: 50%;
-    }
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    .brand-mark::before {
-      inset: 7px;
-      border: 2px solid var(--accent);
-    }
-
-    .brand-mark::after {
-      width: 6px;
-      height: 6px;
-      top: 50%;
-      left: 50%;
-      background: var(--accent);
-      transform: translate(-50%, -50%);
-    }
 
     .button {
       min-height: 50px;
@@ -202,21 +172,11 @@
 
     .reader {
       position: relative;
-      min-height: 570px;
+      min-height: 690px;
       overflow: hidden;
       border: 1px solid var(--line);
       background: var(--paper);
       box-shadow: 0 34px 90px var(--shadow);
-    }
-
-    .reader::before {
-      content: "";
-      position: absolute;
-      inset: -90px -120px auto auto;
-      width: 300px;
-      height: 300px;
-      border: 48px solid rgba(0, 120, 212, .08);
-      border-radius: 50%;
     }
 
     .reader-bar {
@@ -229,36 +189,104 @@
     }
 
     .reader-brand {
-      font-size: 20px;
-      font-weight: 300;
-      letter-spacing: -.055em;
+      font-size: 21px;
+      font-weight: 250;
+      letter-spacing: -.06em;
     }
 
     .reader-brand span { color: var(--accent); }
 
-    .settings-dot {
-      width: 34px;
-      height: 34px;
+    .settings-action {
+      width: 38px;
+      height: 38px;
       display: grid;
       place-items: center;
       border: 2px solid currentColor;
       border-radius: 50%;
       color: var(--ink);
-      font-size: 16px;
-      font-weight: 700;
+      font-family: "Segoe UI Symbol", "Segoe UI", sans-serif;
+      font-size: 20px;
+      line-height: 1;
     }
 
     .reader-body {
-      min-height: 509px;
+      min-height: 629px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      gap: 25px;
-      padding: 44px 34px 36px;
+      gap: 16px;
+      padding: 30px 24px 22px;
     }
 
-    .reader-date {
-      margin: auto 0 0;
+    .story-image {
+      min-height: 172px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, transparent 0 52%, rgba(0, 120, 212, .12) 52% 54%, transparent 54%),
+        linear-gradient(155deg, #f3f7fa, #dcecf7);
+    }
+
+    .story-image::before,
+    .story-image::after {
+      content: "";
+      position: absolute;
+    }
+
+    .story-image::before {
+      width: 118px;
+      height: 118px;
+      top: 25px;
+      left: 50%;
+      border: 18px solid rgba(0, 120, 212, .82);
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    .story-image::after {
+      width: 44px;
+      height: 44px;
+      top: 62px;
+      left: 50%;
+      border-radius: 50%;
+      background: var(--paper);
+      transform: translateX(-50%);
+    }
+
+    .story-progress {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .story-progress i {
+      height: 4px;
+      position: relative;
+      overflow: hidden;
+      background: var(--soft);
+    }
+
+    .story-progress i::after {
+      content: "";
+      width: 24%;
+      height: 100%;
+      position: absolute;
+      inset: 0 auto 0 0;
+      background: var(--accent);
+    }
+
+    .story-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .story-topic {
+      margin: 0;
       color: var(--accent);
       font-size: 11px;
       font-weight: 800;
@@ -266,52 +294,83 @@
       text-transform: uppercase;
     }
 
-    .reader h3 {
-      max-width: 8ch;
-      margin: 0;
-      font-size: clamp(48px, 5.4vw, 70px);
-      font-weight: 250;
-      letter-spacing: -.07em;
-      line-height: .86;
-    }
-
-    .reader h3 span { color: var(--accent); }
-
-    .reader-copy {
-      max-width: 29ch;
+    .story-age {
       margin: 0;
       color: var(--muted);
-      font-size: 16px;
-      font-weight: 350;
+      font-size: 11px;
+    }
+
+    .reader h3 {
+      max-width: 14ch;
+      margin: 0;
+      font-size: clamp(31px, 3.5vw, 43px);
+      font-weight: 250;
+      letter-spacing: -.055em;
+      line-height: 1.02;
+    }
+
+    .story-source {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .story-why {
+      margin-top: 2px;
+      padding: 9px 0 9px 14px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .story-why strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .story-why p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
       line-height: 1.45;
     }
 
-    .learning {
+    .story-actions {
       display: grid;
-      grid-template-columns: 8px 1fr auto;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
       border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      font-size: 11px;
-      font-weight: 700;
+      text-align: center;
     }
 
-    .learning i {
-      width: 8px;
-      height: 8px;
+    .story-actions div { display: grid; justify-items: center; gap: 5px; }
+
+    .story-actions i {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--muted);
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(0, 120, 212, .1);
+      color: var(--muted);
+      font-family: "Segoe UI Symbol", "Segoe UI", sans-serif;
+      font-size: 19px;
+      font-style: normal;
+      line-height: 1;
     }
 
-    .learning span:last-child { color: var(--muted); font-weight: 500; }
+    .story-actions span { font-size: 9px; font-weight: 650; }
 
     .illustration-note {
       position: absolute;
-      right: 14px;
-      bottom: 11px;
+      top: 74px;
+      right: 30px;
+      padding: 4px 6px;
+      background: rgba(255, 255, 255, .82);
       color: var(--muted);
       font-size: 9px;
       letter-spacing: .08em;
@@ -475,8 +534,8 @@
       h2 { font-size: clamp(39px, 12vw, 52px); }
       .hero-actions { align-items: flex-start; flex-direction: column; gap: 15px; }
       .reader { min-height: 520px; }
-      .reader-body { min-height: 459px; padding: 36px 24px 31px; }
-      .reader h3 { font-size: 54px; }
+      .reader-body { min-height: 629px; padding: 24px 18px 18px; }
+      .reader h3 { font-size: 34px; }
       .section { padding: 82px 0; }
       .section-heading { margin-bottom: 38px; }
       .principles article { padding: 21px 18px; }
@@ -492,7 +551,7 @@
 </head>
 <body>
   <header class="nav shell">
-    <a class="brand" href="#top" aria-label="NextPhase, till startsidan"><i class="brand-mark" aria-hidden="true"></i>Next<span>Phase</span></a>
+    <a class="brand" href="#top" aria-label="NextPhase, till startsidan">nextphase<span>.</span></a>
     <a class="button button-small" href="https://nextphase.dint.ai/">öppna appen</a>
   </header>
 
@@ -509,18 +568,25 @@
         <p class="trust-line">Ingen inloggning · inga annonser · ingenting läggs till utan ditt val</p>
       </div>
 
-      <div class="reader" role="img" aria-label="Illustrativ vy av NextPhase med dagens viktigaste signaler">
+      <div class="reader" role="img" aria-label="Appnära illustration av en personlig nyhet i NextPhase">
         <div class="reader-bar">
-          <div class="reader-brand">Next<span>Phase</span></div>
-          <div class="settings-dot" aria-hidden="true">···</div>
+          <div class="reader-brand">nextphase<span>.</span></div>
+          <div class="settings-action" aria-hidden="true">⚙</div>
         </div>
         <div class="reader-body">
-          <p class="reader-date">I dag · din sammanfattning</p>
-          <h3>vad har <span>förändrats</span></h3>
-          <p class="reader-copy">Dina viktigaste signaler, förklarade och förankrade i källorna du själv har valt.</p>
-          <div class="learning"><i aria-hidden="true"></i><span>lär sig medan du läser</span><span>en i taget</span></div>
+          <div class="story-image" aria-hidden="true"></div>
+          <div class="story-progress"><i aria-hidden="true"></i><span>3 / 12</span></div>
+          <div class="story-meta"><p class="story-topic">AI och arbetsliv</p><p class="story-age">12 min sedan</p></div>
+          <h3>Nya AI-arbetssätt flyttar från pilot till vardag</h3>
+          <p class="story-source">Exempelkälla</p>
+          <div class="story-why"><strong>varför</strong><p>Matchar ditt intresse för praktisk AI. Du har tidigare valt fler nyheter om nya arbetssätt.</p></div>
+          <div class="story-actions" aria-hidden="true">
+            <div><i>＋</i><span>gilla</span></div>
+            <div><i>−</i><span>ej intresserad</span></div>
+            <div><i>☆</i><span>spara</span></div>
+          </div>
         </div>
-        <span class="illustration-note">illustrativ vy</span>
+        <span class="illustration-note">appnära illustration</span>
       </div>
     </section>
 
